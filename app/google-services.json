@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "291346937606",
+    "firebase_url": "https://marketapp-58892.firebaseio.com",
+    "project_id": "marketapp-58892",
+    "storage_bucket": "marketapp-58892.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:291346937606:android:77738edca38da139",
+        "android_client_info": {
+          "package_name": "com.tubili.androidmarket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "291346937606-m71jnppn9oooct0sqjq0tqecpatqsfah.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tubili.androidmarket",
+            "certificate_hash": "f602bb3b16c53740b4c1be41c0e451210f3fc0e7"
+          }
+        },
+        {
+          "client_id": "291346937606-bslv46rbkriuresg1mvsmblpm56cp553.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL1NY_ktqR2QgyJ3s0QDSZJ7Idiymp9uk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "291346937606-bslv46rbkriuresg1mvsmblpm56cp553.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
