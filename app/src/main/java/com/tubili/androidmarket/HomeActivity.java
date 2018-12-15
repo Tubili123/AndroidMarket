@@ -3,7 +3,6 @@ package com.tubili.androidmarket;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.health.TimerStat;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -49,18 +48,21 @@ public class HomeActivity extends AppCompatActivity
     FirebaseDatabase firebaseDatabase;
     DatabaseReference category;
     FirebaseRecyclerAdapter<Category, MenuViewHolder> adapter;
+
     TextView textViewName;
     RecyclerView recyclerView_menu;
-    private boolean isSinglePressed;
     SwipeRefreshLayout swipeRefreshLayout;
+
     private CounterFab fab;
+    private boolean isSinglePressed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Menu");
+        toolbar.setTitle("Anasayfa");
         setSupportActionBar(toolbar);
 
         Paper.init(this);
@@ -96,8 +98,6 @@ public class HomeActivity extends AppCompatActivity
 
         //Load Menu
         recyclerView_menu = findViewById(R.id.recycler_menu);
-//        recyclerView_menu.setHasFixedSize(true);
-//        recyclerView_menu.setLayoutManager(new LinearLayoutManager(this, VERTICAL, false));
         recyclerView_menu.setLayoutManager(new GridLayoutManager(this, 2));
         loadMenu();
 
@@ -204,7 +204,7 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
+            // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
 

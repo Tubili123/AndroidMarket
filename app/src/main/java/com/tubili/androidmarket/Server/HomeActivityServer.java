@@ -87,7 +87,7 @@ public class HomeActivityServer extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_server);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Menu Management");
+        toolbar.setTitle("Admin Paneli");
         setSupportActionBar(toolbar);
 
         Paper.init(this);

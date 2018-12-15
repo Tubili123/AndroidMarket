@@ -45,15 +45,16 @@ import java.util.List;
 
 public class FoodActivity extends AppCompatActivity {
 
+    Database database;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference foods;
     FirebaseRecyclerAdapter adapter;
     FirebaseRecyclerAdapter searchAdapter;
+
     SwipeRefreshLayout swipeRefreshLayout;
     RecyclerView recyclerViewFood;
     String categoryId;
 
-    Database database;
     CallbackManager callbackManager;
     ShareDialog shareDialog;
 

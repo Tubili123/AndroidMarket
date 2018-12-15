@@ -49,6 +49,7 @@ import com.mancj.materialsearchbar.SimpleOnSearchActionListener;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.squareup.picasso.Picasso;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -325,8 +326,8 @@ public class FoodActivityServer extends AppCompatActivity {
 
     private void addFoodDialog() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        alertDialog.setTitle("Add new Food");
-        alertDialog.setMessage("Please provide information about food");
+        alertDialog.setTitle("Yeni Ürün Ekle");
+        alertDialog.setMessage("Tüm bilgileri doldurunuz");
         alertDialog.setIcon(R.drawable.ic_shopping_cart_black_24dp);
 
         @SuppressLint("InflateParams") View view = getLayoutInflater().inflate(R.layout.custom_add_food_dialog, null);
@@ -365,9 +366,9 @@ public class FoodActivityServer extends AppCompatActivity {
         alertDialog.show();
     }
 
-
+    // saveUri != null &&
     private void uploadImage() {
-        if(saveUri != null && !etName.getText().toString().equals("") && !etDescription.getText().toString().equals("") &&
+        if( !etName.getText().toString().equals("") && !etDescription.getText().toString().equals("") &&
                 !etPrice.getText().toString().equals("") && !etDiscount.getText().toString().equals("") && categoryId != null)
         {
             final ProgressDialog progressDialog = new ProgressDialog(this);
@@ -376,6 +377,7 @@ public class FoodActivityServer extends AppCompatActivity {
 
             final String imageName = UUID.randomUUID().toString();
             final StorageReference imageStorage = storageReference.child("images/" + imageName);
+
             imageStorage.putFile(saveUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
