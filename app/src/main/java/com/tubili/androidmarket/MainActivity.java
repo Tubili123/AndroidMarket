@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnSignIn = findViewById(R.id.btnSignIn);
 
         textSlogan = findViewById(R.id.txtSlogan);
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/NABILA.TTF");
-        textSlogan.setTypeface(typeface);
+        //Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Quicksand_Dash.otf");
+        //textSlogan.setTypeface(typeface);
 
         btnSignUp.setOnClickListener(this);
         btnSignIn.setOnClickListener(this);

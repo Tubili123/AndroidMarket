@@ -40,7 +40,7 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final ProgressDialog progressDialog = new ProgressDialog(SignUp.this);
-                progressDialog.setMessage("Please Wait...");
+                progressDialog.setMessage("Lütfen bekleyin...");
                 progressDialog.show();
 
                 table_user.addValueEventListener(new ValueEventListener() {
@@ -49,14 +49,14 @@ public class SignUp extends AppCompatActivity {
                         if(dataSnapshot.child(editPhone.getText().toString()).exists())
                         {
                             progressDialog.dismiss();
-                            Toast.makeText(SignUp.this, "User already exists!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUp.this, "Böyle bir kullanıcı zaten var!", Toast.LENGTH_SHORT).show();
                         }
                         else
                         {
                             progressDialog.dismiss();
                             User user = new User(editName.getText().toString(), editPassword.getText().toString());
                             table_user.child(editPhone.getText().toString()).setValue(user);
-                            Toast.makeText(SignUp.this, "User created successfully!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUp.this, "Kullanıcı başarı ile oluşturuldu!", Toast.LENGTH_SHORT).show();
                             finish();
                         }
 

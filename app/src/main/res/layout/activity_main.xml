@@ -16,16 +16,18 @@
         <ImageView
             android:layout_width="200dp"
             android:layout_height="200dp"
+            android:layout_gravity="center"
             android:src="@drawable/logo_eat_it"
             tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/txtSlogan"
+            android:layout_width="232dp"
+            android:layout_height="54dp"
             android:layout_gravity="center"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:textColor="#fff"
-            android:text="@string/slogan"/>
+            android:text="@string/slogan"
+            android:textColor="@color/gray"
+            android:textSize="16sp" />
     </LinearLayout>
     
     <LinearLayout

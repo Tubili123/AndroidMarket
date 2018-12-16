@@ -148,7 +148,7 @@ public class HomeActivityServer extends AppCompatActivity
             if(data != null && data.getData() != null)
             {
                 saveUri = data.getData();
-                Toast.makeText(this, "Image selected", LENGTH_SHORT).show();
+                Toast.makeText(this, "Fotoğraf seçildi", LENGTH_SHORT).show();
             }
         }
     }
@@ -179,7 +179,7 @@ public class HomeActivityServer extends AppCompatActivity
         else
         {
             isSinglePressed = true;
-            Toast.makeText(this, "Press again to exit", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Çıkmak için tekrar basın", Toast.LENGTH_SHORT).show();
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -280,8 +280,8 @@ public class HomeActivityServer extends AppCompatActivity
 
     private void addMenuDialog() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        alertDialog.setTitle("Add new Category");
-        alertDialog.setMessage("Please provide information about category");
+        alertDialog.setTitle("Yeni Kategori Ekle");
+        alertDialog.setMessage("Lütfen kategori hakkında bilgi verin");
         alertDialog.setIcon(R.drawable.ic_shopping_cart_black_24dp);
 
         View view = getLayoutInflater().inflate(R.layout.custom_add_category_dialog, null);
@@ -306,7 +306,7 @@ public class HomeActivityServer extends AppCompatActivity
         });
 
 
-        alertDialog.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton("Kapat", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
@@ -322,7 +322,7 @@ public class HomeActivityServer extends AppCompatActivity
         if(saveUri != null && !etName.getText().toString().equals(""))
         {
             final ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setMessage("Uploading...");
+            progressDialog.setMessage("Yükleniyor...");
             progressDialog.show();
 
             final String imageName = UUID.randomUUID().toString();
@@ -336,7 +336,7 @@ public class HomeActivityServer extends AppCompatActivity
                             progressDialog.dismiss();
                             Category newCategory = new Category(etName.getText().toString(), uri.toString());
                             category.push().setValue(newCategory);
-                            Snackbar.make(drawer, "Category added successfully", Snackbar.LENGTH_SHORT).show();
+                            Snackbar.make(drawer, "Kategori başarı ile oluşturuldu", Snackbar.LENGTH_SHORT).show();
                             saveUri = null;
                         }
                     });
@@ -351,13 +351,13 @@ public class HomeActivityServer extends AppCompatActivity
                 @Override
                 public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                     int progress = (int) (100.0 * (taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount());
-                    progressDialog.setMessage("Uploading : " + progress);
+                    progressDialog.setMessage("Yükleniyor : %" + progress);
                 }
             });
         }
         else
         {
-            Toast.makeText(this, "Please provide name and image both", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Lütfen isim ve resim girin", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -372,8 +372,8 @@ public class HomeActivityServer extends AppCompatActivity
 
     private void updateCategory(final String key, final Category item) {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        alertDialog.setTitle("Update Category");
-        alertDialog.setMessage("Please update information about category");
+        alertDialog.setTitle("Kategori Güncelle");
+        alertDialog.setMessage("Lütfen kategori hakkındaki bilgileri güncelleyin");
         alertDialog.setIcon(R.drawable.ic_shopping_cart_black_24dp);
 
         View view = getLayoutInflater().inflate(R.layout.custom_add_category_dialog, null);
@@ -400,7 +400,7 @@ public class HomeActivityServer extends AppCompatActivity
         });
 
 
-        alertDialog.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton("Kapat", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
@@ -416,7 +416,7 @@ public class HomeActivityServer extends AppCompatActivity
         if(saveUri != null && !etName.getText().toString().equals(""))
         {
             final ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setMessage("Uploading...");
+            progressDialog.setMessage("Yükleniyor...");
             progressDialog.show();
 
             final String imageName = UUID.randomUUID().toString();
@@ -431,7 +431,7 @@ public class HomeActivityServer extends AppCompatActivity
                             item.setName(etName.getText().toString());
                             item.setImage(uri.toString());
                             category.child(key).setValue(item);
-                            Snackbar.make(drawer, "Category updated successfully", Snackbar.LENGTH_SHORT).show();
+                            Snackbar.make(drawer, "Kategori başarı ile oluşturuldu", Snackbar.LENGTH_SHORT).show();
                             saveUri = null;
                         }
                     });
@@ -446,13 +446,13 @@ public class HomeActivityServer extends AppCompatActivity
                 @Override
                 public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                     int progress = (int) (100.0 * (taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount());
-                    progressDialog.setMessage("Uploading : " + progress);
+                    progressDialog.setMessage("Yükleniyor : %" + progress);
                 }
             });
         }
         else
         {
-            Toast.makeText(this, "Please provide name and image both", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Lütfen tüm bilgileri girin", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -368,11 +368,11 @@ public class FoodActivityServer extends AppCompatActivity {
 
     // saveUri != null &&
     private void uploadImage() {
-        if( !etName.getText().toString().equals("") && !etDescription.getText().toString().equals("") &&
+        if( saveUri != null &&!etName.getText().toString().equals("") && !etDescription.getText().toString().equals("") &&
                 !etPrice.getText().toString().equals("") && !etDiscount.getText().toString().equals("") && categoryId != null)
         {
             final ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setMessage("Uploading...");
+            progressDialog.setMessage("Yükleniyor...");
             progressDialog.show();
 
             final String imageName = UUID.randomUUID().toString();
@@ -392,7 +392,7 @@ public class FoodActivityServer extends AppCompatActivity {
                                     categoryId,
                                     uri.toString());
                             foods.push().setValue(newFood);
-                            Snackbar.make(coordinatorLayout, "Food added successfully", Snackbar.LENGTH_SHORT).show();
+                            Snackbar.make(coordinatorLayout, "Ürün başarıyla eklendi", Snackbar.LENGTH_SHORT).show();
                             saveUri = null;
                         }
                     });
@@ -407,13 +407,13 @@ public class FoodActivityServer extends AppCompatActivity {
                 @Override
                 public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                     int progress = (int) (100.0 * (taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount());
-                    progressDialog.setMessage("Uploading : " + progress);
+                    progressDialog.setMessage("Yükleniyor : %" + progress);
                 }
             });
         }
         else
         {
-            Toast.makeText(this, "Please provide all details", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Lütfen tüm bilgileri sağlayın.", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -428,8 +428,8 @@ public class FoodActivityServer extends AppCompatActivity {
 
     private void updateFood(final String key, final Food item) {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        alertDialog.setTitle("Update Food");
-        alertDialog.setMessage("Please update information about food");
+        alertDialog.setTitle("Ürün Güncelle");
+        alertDialog.setMessage("Lütfen ürüm ile ilgili bilgileri güncelleyin");
         alertDialog.setIcon(R.drawable.ic_shopping_cart_black_24dp);
 
         @SuppressLint("InflateParams") View view = getLayoutInflater().inflate(R.layout.custom_add_food_dialog, null);
@@ -462,7 +462,7 @@ public class FoodActivityServer extends AppCompatActivity {
         });
 
 
-        alertDialog.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton("Kapat", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
@@ -479,7 +479,7 @@ public class FoodActivityServer extends AppCompatActivity {
                 !etPrice.getText().toString().equals("") && !etDiscount.getText().toString().equals("") && categoryId != null)
         {
             final ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setMessage("Uploading...");
+            progressDialog.setMessage("Yükleniyor...");
             progressDialog.show();
 
             final String imageName = UUID.randomUUID().toString();
@@ -497,7 +497,7 @@ public class FoodActivityServer extends AppCompatActivity {
                             item.setDiscount(etDiscount.getText().toString());
                             item.setImage(uri.toString());
                             foods.child(key).setValue(item);
-                            Toast.makeText(FoodActivityServer.this, "Food updated successfully", LENGTH_SHORT).show();
+                            Toast.makeText(FoodActivityServer.this, "Ürün başarıyla güncellendi", LENGTH_SHORT).show();
                             saveUri = null;
                         }
                     });
@@ -512,13 +512,13 @@ public class FoodActivityServer extends AppCompatActivity {
                 @Override
                 public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                     int progress = (int) (100.0 * (taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount());
-                    progressDialog.setMessage("Uploading : " + progress);
+                    progressDialog.setMessage("Yükleniyor : %" + progress);
                 }
             });
         }
         else
         {
-            Toast.makeText(this, "Please provide all details", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Lütfen ürün ile ilgili tüm bilgileri giriniz.", Toast.LENGTH_SHORT).show();
         }
     }
 

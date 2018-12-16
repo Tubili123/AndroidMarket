@@ -98,7 +98,7 @@ public class FoodDetailActivity extends AppCompatActivity implements View.OnClic
             Order order = new Order(foodId, currentFood.getName(), elegantNumberButton.getNumber() , currentFood.getPrice(),
                     currentFood.getDiscount());
             database.addToCart(order);
-            Toast.makeText(this, "Added to Cart", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Sepete Eklendi!", Toast.LENGTH_SHORT).show();
         }
         else if(view.getId() == R.id.btnRating)
         {
@@ -122,25 +122,25 @@ public class FoodDetailActivity extends AppCompatActivity implements View.OnClic
     public void onPositiveButtonClicked(int i, @NotNull String s) {
         final Rating rating =  new Rating(String.valueOf(i), s, foodId);
         ratings.child(Common.currentUser.getPhone()).child(foodId).setValue(rating);
-        Toast.makeText(this, "Thank you for rating food", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Ürünü değerlendirdiğiniz için teşekkürler!", Toast.LENGTH_SHORT).show();
     }
 
 
     //show rating dialog
     private void showRatingDialog() {
             new AppRatingDialog.Builder()
-                    .setPositiveButtonText("Submit")
-                    .setNegativeButtonText("Cancel")
-                    .setNoteDescriptions(Arrays.asList("Very Bad", "Not good", "Quite ok", "Very Good", "Excellent !!!"))
+                    .setPositiveButtonText("Gönder")
+                    .setNegativeButtonText("İptal Et")
+                    .setNoteDescriptions(Arrays.asList("Çok kötü", "Kötü", "İyi", "Çok iyi", "Mükemmel !!!"))
                     .setDefaultRating(ratingValue)
-                    .setTitle("Rate this food")
-                    .setDescription("Please select some stars and give your feedback")
+                    .setTitle("Ürünü derecelendir")
+                    .setDescription("Lütfen yıldız seçin ve geri bildiriminizi gönderin!")
                     .setCommentInputEnabled(true)
                     .setStarColor(R.color.yellow)
                     .setNoteDescriptionTextColor(R.color.colorAccent)
                     .setTitleTextColor(R.color.colorAccent)
                     .setDescriptionTextColor(R.color.colorAccent)
-                    .setHint("Please write your comment here ...")
+                    .setHint("Lütfen yorumunuzu buraya girin...")
                     .setHintTextColor(R.color.gray)
                     .setCommentTextColor(R.color.white)
                     .setCommentBackgroundColor(R.color.colorPrimaryDark)

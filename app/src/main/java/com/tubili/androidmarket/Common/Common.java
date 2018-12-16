@@ -22,11 +22,11 @@ public class Common {
     public static String getStatus(String status) {
         switch (status) {
             case "0":
-                return "Placed";
+                return "Alındı";
             case "1":
-                return "Shipping";
+                return "Yolda";
             case "2":
-                return "Shipped";
+                return "Teslim Edildi";
             default:
                 return "Status Not Available";
         }

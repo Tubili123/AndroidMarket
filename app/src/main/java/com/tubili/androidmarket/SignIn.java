@@ -51,7 +51,7 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final ProgressDialog progressDialog = new ProgressDialog(SignIn.this);
-                progressDialog.setMessage("Please Wait...");
+                progressDialog.setMessage("Lütfen bekleyin...");
                 progressDialog.show();
 
                 table_user.addValueEventListener(new ValueEventListener() {
@@ -81,13 +81,13 @@ public class SignIn extends AppCompatActivity {
                                 finish();
                             } else
                             {
-                                Toast.makeText(SignIn.this, "Sign in failed!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignIn.this, "Giriş başarısız!", Toast.LENGTH_SHORT).show();
                             }
                         }
                         else
                         {
                             progressDialog.dismiss();
-                            Toast.makeText(SignIn.this, "User not exists!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignIn.this, "Kullanıcı bulunamadı!", Toast.LENGTH_SHORT).show();
                         }
                     }
 

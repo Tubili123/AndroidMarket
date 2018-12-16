@@ -31,7 +31,7 @@ public class FoodViewHolderServer extends RecyclerView.ViewHolder implements Vie
 
     @Override
     public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
-        contextMenu.setHeaderTitle("Select action");
+        contextMenu.setHeaderTitle("Seçim");
         contextMenu.add(0, 0, getAdapterPosition(), Common.UPDATE);
         contextMenu.add(0, 1, getAdapterPosition(), Common.DELETE);
     }

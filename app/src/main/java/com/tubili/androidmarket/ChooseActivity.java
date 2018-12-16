@@ -48,7 +48,7 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
         try {
 
             @SuppressLint("PackageManagerGetSignatures") PackageInfo info =
-                    getPackageManager().getPackageInfo("com.example.salmangeforce.food_order",
+                    getPackageManager().getPackageInfo("com.tubili.androidmarket",
                             PackageManager.GET_SIGNATURES);
 
             for (Signature signature : info.signatures) {

@@ -25,7 +25,7 @@
     <string name="_1_000">$1,000</string>
     <string name="_12345678">12345678</string>
     <string name="_03234380625">12345678910</string>
-    <string name="_0_00">$0.00</string>
+    <string name="_0_00">0.00 TL</string>
     <string name="walton_road">Walton Road</string>
     <string name="shipping">teslimat</string>
     <string name="server">Admin</string>

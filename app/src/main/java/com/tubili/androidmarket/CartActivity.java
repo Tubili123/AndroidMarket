@@ -53,7 +53,7 @@ public class CartActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(textViewPrice.getText().toString().equals("$0.00"))
-                    Toast.makeText(CartActivity.this, "Cart is empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CartActivity.this, "Sepetiniz boş!", Toast.LENGTH_SHORT).show();
                 else
                     showDialog();
             }
@@ -90,8 +90,8 @@ public class CartActivity extends AppCompatActivity {
 
     private void showDialog() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("One more step!");
-        builder.setMessage("Enter your Address: ");
+        builder.setTitle("Bir adım kaldı!");
+        builder.setMessage("Lütfen adresinizi girin: ");
         final EditText editText = new EditText(this);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
@@ -101,7 +101,7 @@ public class CartActivity extends AppCompatActivity {
         builder.setView(editText);
         builder.setIcon(R.drawable.ic_shopping_cart_black_24dp);
 
-        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("EVET", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Request req = new Request(Common.currentUser.getName(),
@@ -114,12 +114,12 @@ public class CartActivity extends AppCompatActivity {
                 request.child(String.valueOf(System.currentTimeMillis())).setValue(req);
 
                 new Database(CartActivity.this).cleanCart();
-                Toast.makeText(CartActivity.this, "Order is placed. Thank You!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CartActivity.this, "Siparişiniz alındı. Bizi tercih ettiğiniz için teşekkürler!", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
 
-        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("HAYIR", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();

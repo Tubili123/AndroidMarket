@@ -185,7 +185,7 @@ public class HomeActivity extends AppCompatActivity
         else
         {
             isSinglePressed = true;
-            Toast.makeText(this, "Press again to exit", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Çıkmak için tekrar basın", Toast.LENGTH_SHORT).show();
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
