@@ -124,14 +124,14 @@ public class OrderStatusActivityServer extends AppCompatActivity {
                 TextView textViewStatus = holder.itemView.findViewById(R.id.order_status);
                 textViewStatus.setText(Common.getStatus(model.getStatus()));
 
-                holder.itemView.setOnClickListener(new View.OnClickListener() {
+               /* holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(OrderStatusActivityServer.this, TrackingOrderActivity.class);
                         Common.currentRequest = model;
                         startActivity(intent);
                     }
-                });
+                });*/
             }
         };
         recyclerView.setAdapter(adapter);
@@ -141,8 +141,8 @@ public class OrderStatusActivityServer extends AppCompatActivity {
 
     private void showUpdateDialog(final String key, final Request item) {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        alertDialog.setTitle("Update Order");
-        alertDialog.setMessage("Please choose status");
+        alertDialog.setTitle("Siparişi Güncelle");
+        alertDialog.setMessage("Lütfen Durum Seçin");
         alertDialog.setIcon(R.drawable.ic_access_time_black_24dp);
 
         @SuppressLint("InflateParams") View view = getLayoutInflater().inflate(R.layout.update_order_dialog, null);
@@ -150,10 +150,10 @@ public class OrderStatusActivityServer extends AppCompatActivity {
 
         orderStatus = view.findViewById(R.id.order_status);
 
-        orderStatus.setItems("Placed", "Shipping", "Shipped");
+        orderStatus.setItems("Alındı", "Yolda", "Teslim Edildi");
         orderStatus.setSelectedIndex(Integer.parseInt(item.getStatus()));
 
-        alertDialog.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+        alertDialog.setPositiveButton("Güncelle", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 item.setStatus(String.valueOf(orderStatus.getSelectedIndex()));
@@ -161,7 +161,7 @@ public class OrderStatusActivityServer extends AppCompatActivity {
             }
         });
 
-        alertDialog.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton("Kapat", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();

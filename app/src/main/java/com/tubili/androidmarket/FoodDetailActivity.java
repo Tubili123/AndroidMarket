@@ -110,7 +110,7 @@ public class FoodDetailActivity extends AppCompatActivity implements View.OnClic
     //rating dialog listener
     @Override
     public void onNegativeButtonClicked() {
-        Toast.makeText(this, "You provide no rating", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Derecelendirme yapılmadı", Toast.LENGTH_SHORT).show();
     }
 
     @Override

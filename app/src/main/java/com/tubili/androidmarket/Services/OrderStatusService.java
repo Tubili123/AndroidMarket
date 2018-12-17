@@ -86,7 +86,7 @@ public class OrderStatusService extends Service {
                 .setWhen(System.currentTimeMillis())
                 .setTicker("EDMT")
                 .setContentTitle("Eat IT")
-                .setContentText("Order #" + key + " was updated to " + Common.getStatus(request.getStatus()))
+                .setContentText("Sipariş #" + key + " güncellendi: " + Common.getStatus(request.getStatus()))
                 .setContentIntent(pendingIntent)
                 .setSmallIcon(R.drawable.ic_access_time_black_24dp);
 

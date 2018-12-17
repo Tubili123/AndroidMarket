@@ -84,8 +84,8 @@ public class OrderListenService extends Service {
         builder.setDefaults(Notification.DEFAULT_ALL)
                 .setWhen(System.currentTimeMillis())
                 .setTicker("EDMT")
-                .setContentTitle("Eat IT")
-                .setContentText("Order #" + key + " is added")
+                .setContentTitle("MarketX")
+                .setContentText("Sipariş #" + key + " eklendi.")
                 .setContentIntent(pendingIntent)
                 .setSmallIcon(R.drawable.ic_access_time_black_24dp);
 

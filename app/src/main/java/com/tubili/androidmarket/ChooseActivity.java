@@ -45,7 +45,7 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
         Paper.init(this);
 
         //Get key hash for fb
-        try {
+       /* try {
 
             @SuppressLint("PackageManagerGetSignatures") PackageInfo info =
                     getPackageManager().getPackageInfo("com.tubili.androidmarket",
@@ -58,7 +58,7 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
             }
         } catch (PackageManager.NameNotFoundException | NoSuchAlgorithmException e) {
             e.printStackTrace();
-        }
+        }*/
 
         relativeLayout = findViewById(R.id.parent);
         btnClient = findViewById(R.id.btnClient);

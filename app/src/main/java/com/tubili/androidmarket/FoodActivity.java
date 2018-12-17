@@ -172,7 +172,7 @@ public class FoodActivity extends AppCompatActivity {
                 if(text.length() > 0)
                     filterResult(text);
                 else {
-                    Toast.makeText(FoodActivity.this, "Oops, you forgot to enter food", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FoodActivity.this, "Oops, ürün girmeyi unuttunuz", Toast.LENGTH_SHORT).show();
                     materialSearchBar.disableSearch();
                 }
             }
@@ -216,14 +216,14 @@ public class FoodActivity extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull FoodViewHolder holder, @SuppressLint("RecyclerView") final int position, @NonNull final Food model) {
                 TextView textViewName = holder.itemView.findViewById(R.id.food_name);
                 ImageView imageView = holder.itemView.findViewById(R.id.food_image);
-                final ImageView imageViewFav = holder.itemView.findViewById(R.id.favorite);
-                final ImageView imageFbShare = holder.itemView.findViewById(R.id.fb_share);
+                //final ImageView imageViewFav = holder.itemView.findViewById(R.id.favorite);
+                //final ImageView imageFbShare = holder.itemView.findViewById(R.id.fb_share);
                 final ImageView imageViewCart = holder.itemView.findViewById(R.id.cart);
 
                 textViewName.setText(model.getName());
                 Picasso.get().load(model.getImage()).into(imageView);
 
-                if(database.isFavorite(adapter.getRef(position).getKey()))
+               /* if(database.isFavorite(adapter.getRef(position).getKey()))
                 {
                     imageViewFav.setImageResource(R.drawable.ic_favorite_white_24dp);
                 }
@@ -246,7 +246,7 @@ public class FoodActivity extends AppCompatActivity {
                             imageViewFav.setImageResource(R.drawable.ic_favorite_white_24dp);
                         }
                     }
-                });
+                });*/
 
                 //Quick cart
                 imageViewCart.setOnClickListener(new View.OnClickListener() {
@@ -259,7 +259,7 @@ public class FoodActivity extends AppCompatActivity {
                                 model.getPrice(),
                                 model.getDiscount());
                         database.addToCart(order);
-                        Toast.makeText(FoodActivity.this, "Added to cart", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(FoodActivity.this, "Sepete Eklendi", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -276,12 +276,12 @@ public class FoodActivity extends AppCompatActivity {
 
 
                 //fb_share_button_click_listener
-                imageFbShare.setOnClickListener(new View.OnClickListener() {
+                /*imageFbShare.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Picasso.get().load(model.getImage()).into(target);
                     }
-                });
+                });*/
             }
         };
 
@@ -326,7 +326,7 @@ public class FoodActivity extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull FoodViewHolder holder, int position, @NonNull final Food model) {
                 TextView textViewName = holder.itemView.findViewById(R.id.food_name);
                 ImageView imageView = holder.itemView.findViewById(R.id.food_image);
-                final ImageView imageFbShare = holder.itemView.findViewById(R.id.fb_share);
+                //final ImageView imageFbShare = holder.itemView.findViewById(R.id.fb_share);
 
                 textViewName.setText(model.getName());
                 Picasso.get().load(model.getImage()).into(imageView);
@@ -343,12 +343,12 @@ public class FoodActivity extends AppCompatActivity {
                 });
 
                 //fb_share_button_click_listener
-                imageFbShare.setOnClickListener(new View.OnClickListener() {
+                /*imageFbShare.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Picasso.get().load(model.getImage()).into(target);
                     }
-                });
+                });*/
             }
         };
 

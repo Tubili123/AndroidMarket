@@ -108,8 +108,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
             }
         });
 
-//        TextDrawable textDrawable = TextDrawable.builder().buildRound(orders.get(position).getQuantity(), Color.RED);
-//        holder.imageView.setImageDrawable(textDrawable);
     }
 
 

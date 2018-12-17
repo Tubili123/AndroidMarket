@@ -52,7 +52,7 @@ public class CartActivity extends AppCompatActivity {
         buttonOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(textViewPrice.getText().toString().equals("$0.00"))
+                if(textViewPrice.getText().toString().equals("0.00TL"))
                     Toast.makeText(CartActivity.this, "Sepetiniz boş!", Toast.LENGTH_SHORT).show();
                 else
                     showDialog();

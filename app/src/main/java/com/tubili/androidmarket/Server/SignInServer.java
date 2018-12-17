@@ -55,7 +55,7 @@ public class SignInServer extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final ProgressDialog progressDialog = new ProgressDialog(SignInServer.this);
-                progressDialog.setMessage("Please Wait...");
+                progressDialog.setMessage("Lütfen Bekleyin...");
                 progressDialog.show();
 
                 table_user.addValueEventListener(new ValueEventListener() {
@@ -85,18 +85,18 @@ public class SignInServer extends AppCompatActivity {
                                     startActivity(intent);
                                     finish();
                                 } else {
-                                    Toast.makeText(SignInServer.this, "Sign in failed!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SignInServer.this, "Giriş başarısız!", Toast.LENGTH_SHORT).show();
                                 }
                             }
                             else
                             {
-                                Toast.makeText(SignInServer.this, "Please login with staff account", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignInServer.this, "Lütfen Admin hesabı ile giriş yapın", Toast.LENGTH_SHORT).show();
                             }
                         }
                         else
                         {
                             progressDialog.dismiss();
-                            Toast.makeText(SignInServer.this, "User not exists!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignInServer.this, "Böyle bir kullanıcı bulunamadı!", Toast.LENGTH_SHORT).show();
                         }
                     }
 

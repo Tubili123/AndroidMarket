@@ -175,7 +175,7 @@ public class FoodActivityServer extends AppCompatActivity {
                 if(text.length() > 0)
                     filterResult(text);
                 else {
-                    Toast.makeText(FoodActivityServer.this, "Oops, you forgot to enter food", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FoodActivityServer.this, "Oops, ürün girmeyi unuttun.", Toast.LENGTH_SHORT).show();
                     materialSearchBar.disableSearch();
                 }
             }
@@ -209,7 +209,7 @@ public class FoodActivityServer extends AppCompatActivity {
             if(data != null && data.getData() != null)
             {
                 saveUri = data.getData();
-                Toast.makeText(this, "Image selected", LENGTH_SHORT).show();
+                Toast.makeText(this, "Resim seçildi", LENGTH_SHORT).show();
             }
         }
     }
@@ -355,7 +355,7 @@ public class FoodActivityServer extends AppCompatActivity {
         });
 
 
-        alertDialog.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton("Kapat", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
@@ -429,7 +429,7 @@ public class FoodActivityServer extends AppCompatActivity {
     private void updateFood(final String key, final Food item) {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setTitle("Ürün Güncelle");
-        alertDialog.setMessage("Lütfen ürüm ile ilgili bilgileri güncelleyin");
+        alertDialog.setMessage("Lütfen ürün ile ilgili bilgileri güncelleyin");
         alertDialog.setIcon(R.drawable.ic_shopping_cart_black_24dp);
 
         @SuppressLint("InflateParams") View view = getLayoutInflater().inflate(R.layout.custom_add_food_dialog, null);
