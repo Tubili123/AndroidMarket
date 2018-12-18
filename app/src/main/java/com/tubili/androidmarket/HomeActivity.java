@@ -54,6 +54,7 @@ public class HomeActivity extends AppCompatActivity
     SwipeRefreshLayout swipeRefreshLayout;
 
     private CounterFab fab;
+    private CounterFab fabMessage;
     private boolean isSinglePressed;
 
     @Override
@@ -80,6 +81,16 @@ public class HomeActivity extends AppCompatActivity
             }
         });
         fab.setCount(new Database(this).getOrderCount());
+
+        fabMessage = findViewById(R.id.fabmessage);
+        fabMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(HomeActivity.this, "oldu", Toast.LENGTH_SHORT).show();
+                Intent intent  = new Intent(HomeActivity.this,MessageActivity.class);
+                startActivity(intent);
+            }
+        });
 
         swipeRefreshLayout = findViewById(R.id.swipeHome);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

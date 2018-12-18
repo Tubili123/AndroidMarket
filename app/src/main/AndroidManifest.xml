@@ -5,7 +5,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
@@ -14,14 +14,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning"
-        tools:replace="android:icon"
-        android:theme="@style/AppTheme">
+        tools:replace="android:icon">
 
-        <!--Facebook sdk-->
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>
-
+        <!-- Facebook sdk -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
 
         <activity android:name=".MainActivity" />
         <activity android:name=".SignIn" />
@@ -47,11 +47,13 @@
         <activity
             android:name=".Server.SignInServer"
             tools:ignore="InnerclassSeparator">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
 
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".Server.HomeActivityServer"
@@ -70,7 +72,6 @@
             android:enabled="true"
             android:exported="true"
             tools:ignore="ExportedService,InnerclassSeparator" />
-
         <service
             android:name=".Server.Services.OrderListenService"
             android:enabled="true"
@@ -95,22 +96,24 @@
             android:name=".Server.TrackingOrderActivity"
             android:label="@string/title_activity_tracking_order"
             tools:ignore="InnerclassSeparator">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
 
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
 
-        <provider android:authorities="com.facebook.app.FacebookContentProvider358682634886397"
+        <provider
             android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider358682634886397"
             android:exported="true"
             tools:ignore="ExportedContentProvider" />
 
-
-
-
-
+        <activity android:name=".MessageActivity" />
+        <activity android:name=".Server.MessageFromUserActivityServer" />
+        <activity android:name=".Server.MessageActivityServer"></activity>
     </application>
 
 </manifest>

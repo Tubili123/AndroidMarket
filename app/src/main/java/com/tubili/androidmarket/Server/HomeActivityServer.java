@@ -107,6 +107,16 @@ public class HomeActivityServer extends AppCompatActivity
             }
         });
 
+        FloatingActionButton fabMessage = findViewById(R.id.fabmessage_server);
+        fabMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(HomeActivityServer.this, "oldu", Toast.LENGTH_SHORT).show();
+                Intent intent  = new Intent(HomeActivityServer.this,MessageFromUserActivityServer.class);
+                startActivity(intent);
+            }
+        });
+
         swipeRefreshLayout = findViewById(R.id.swipeHome);
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
