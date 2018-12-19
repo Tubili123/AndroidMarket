@@ -69,15 +69,15 @@ public class MessageActivityServer extends AppCompatActivity {
         setContentView(R.layout.activity_message_panel);
 
 
-        Integer index =  getIntent().getIntExtra("position",0);
-        User user = MessageFromUserActivityServer.allUser.get(index);
+        int index =  getIntent().getIntExtra("position",0);
+        User user = MessageFromUserActivityServer.userContainer.get(index);
 
-        mUsername = Common.currentUser.getName();
+
         mFirebaseDatabase = FirebaseDatabase.getInstance();
 
         // Saying, need messages portion of db
         mMessagesDatabaseReference = mFirebaseDatabase.getReference().child("messages").child(user.getPhone());
-
+        mUsername = Common.currentUser.getName();
         // Initialize references to views
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         mMessageListView = (ListView) findViewById(R.id.messageListView);
@@ -155,6 +155,7 @@ public class MessageActivityServer extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         attachDatabaseReadListener();
+        //detachDatabaseReadListener();
     }
     @Override
     protected void onPause() {

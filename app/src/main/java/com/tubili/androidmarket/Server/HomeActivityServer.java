@@ -111,7 +111,7 @@ public class HomeActivityServer extends AppCompatActivity
         fabMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(HomeActivityServer.this, "oldu", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(HomeActivityServer.this, "oldu", Toast.LENGTH_SHORT).show();
                 Intent intent  = new Intent(HomeActivityServer.this,MessageFromUserActivityServer.class);
                 startActivity(intent);
             }
