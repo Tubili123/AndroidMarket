@@ -56,6 +56,7 @@ dependencies {
     implementation 'io.paperdb:paperdb:2.6'
     implementation 'com.stepstone.apprating:app-rating:2.3.0'
     implementation 'com.github.andremion:counterfab:1.0.1'
+    implementation 'com.github.lguipeng:BubbleView:1.0.1'
 
     //facebook share
     implementation 'com.facebook.android:facebook-share:[4,5)'

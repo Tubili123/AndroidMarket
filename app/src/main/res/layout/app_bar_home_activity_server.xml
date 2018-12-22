@@ -30,12 +30,13 @@
         android:layout_margin="@dimen/fab_margin"
         app:backgroundTint="@android:color/white"
         app:srcCompat="@android:drawable/ic_input_add" />
+
     <com.andremion.counterfab.CounterFab
         android:id="@+id/fabmessage_server"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="80dp"
         app:backgroundTint="@android:color/white"
         app:srcCompat="@drawable/ic_message_black_24dp" />

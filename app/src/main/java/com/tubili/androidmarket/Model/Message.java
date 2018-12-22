@@ -19,13 +19,25 @@ public class Message {
 
     private String text;
     private String name;
+    private boolean isSend;
+
+    public boolean isSend() {
+        return isSend;
+    }
+
+    public void setSend(boolean send) {
+        isSend = send;
+    }
+
+
 
     public Message() {
     }
 
-    public Message(String text, String name) {
+    public Message(String text, String name,boolean isSend) {
             this.text = text;
         this.name = name;
+        this.isSend = isSend;
     }
 
 

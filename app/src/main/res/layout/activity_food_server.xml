@@ -24,8 +24,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:mt_speechMode="false"
-                app:mt_hint="Enter food"
-                app:mt_placeholder="Search Food">
+                app:mt_hint="Ürünü girin"
+                app:mt_placeholder="Ürün Ara">
 
             </com.mancj.materialsearchbar.MaterialSearchBar>
 

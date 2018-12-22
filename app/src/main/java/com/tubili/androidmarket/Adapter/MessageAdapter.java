@@ -7,15 +7,19 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.github.library.bubbleview.BubbleTextView;
 import com.tubili.androidmarket.Model.Message;
 import com.tubili.androidmarket.R;
 
 import java.util.List;
 
 public class MessageAdapter extends ArrayAdapter<Message> {
+
     public MessageAdapter(Context context, int resource, List<Message> objects) {
         super(context, resource, objects);
+
     }
+
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -23,13 +27,28 @@ public class MessageAdapter extends ArrayAdapter<Message> {
             convertView = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.activity_item_message, parent, false);
         }
 
-        TextView messageTextView = (TextView) convertView.findViewById(R.id.messageTextView);
-        TextView authorTextView = (TextView) convertView.findViewById(R.id.nameTextView);
 
         Message message = getItem(position);
 
-        messageTextView.setText(message.getText());
-        authorTextView.setText(message.getName());
+        if(!message.isSend()) {
+            convertView = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.activity_item_message, parent, false);
+
+            BubbleTextView bubbleTextViewServer = convertView.findViewById(R.id.bubbleChatServer);
+            TextView tvServer = convertView.findViewById(R.id.nameTextView);
+            bubbleTextViewServer.setText(message.getText());
+            tvServer.setText(message.getName());
+        }
+        else{
+            convertView = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.activity_message_server, parent, false);
+            BubbleTextView bubbleTextViewUser = convertView.findViewById(R.id.bubbleChatUser);
+            TextView tvUser = convertView.findViewById(R.id.nameTextViewServer);
+            bubbleTextViewUser.setText(message.getText());
+            tvUser.setText(message.getName());
+        }
+
+
+
+
 
         return convertView;
     }

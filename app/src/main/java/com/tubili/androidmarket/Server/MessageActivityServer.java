@@ -121,7 +121,7 @@ public class MessageActivityServer extends AppCompatActivity {
 
                 // TODO: Send messages on click
                 // Creating a message and pushing it to cloud database
-                Message messageToSend = new Message(mMessageEditText.getText().toString(), mUsername);
+                Message messageToSend = new Message(mMessageEditText.getText().toString(), mUsername,false);
                 mMessagesDatabaseReference.push().setValue(messageToSend);
 
                 // Clear input box

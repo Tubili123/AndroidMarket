@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             app:mt_speechMode="false"
             app:mt_hint="Enter food"
-            app:mt_placeholder="Search Food">
+            app:mt_placeholder="Ürün Bul">
 
         </com.mancj.materialsearchbar.MaterialSearchBar>
 

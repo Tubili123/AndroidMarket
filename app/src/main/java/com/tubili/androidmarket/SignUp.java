@@ -1,6 +1,7 @@
 package com.tubili.androidmarket;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -43,7 +44,7 @@ public class SignUp extends AppCompatActivity {
                 progressDialog.setMessage("Lütfen bekleyin...");
                 progressDialog.show();
 
-                table_user.addValueEventListener(new ValueEventListener() {
+                table_user.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.child(editPhone.getText().toString()).exists())
@@ -57,9 +58,10 @@ public class SignUp extends AppCompatActivity {
                             User user = new User(editName.getText().toString(), editPassword.getText().toString());
                             table_user.child(editPhone.getText().toString()).setValue(user);
                             Toast.makeText(SignUp.this, "Kullanıcı başarı ile oluşturuldu!", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(SignUp.this,MainActivity.class);
+                            startActivity(intent);
                             finish();
                         }
-
                     }
 
                     @Override

@@ -86,11 +86,12 @@ public class HomeActivity extends AppCompatActivity
         fabMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(HomeActivity.this, "oldu", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(HomeActivity.this, "oldu", Toast.LENGTH_SHORT).show();
                 Intent intent  = new Intent(HomeActivity.this,MessageActivity.class);
                 startActivity(intent);
             }
         });
+
 
         swipeRefreshLayout = findViewById(R.id.swipeHome);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

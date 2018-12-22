@@ -85,7 +85,7 @@ public class CartActivity extends AppCompatActivity {
             total += (Integer.parseInt(order.getPrice()) * Integer.parseInt(order.getQuantity())
                     - Integer.parseInt(order.getDiscount()) * Integer.parseInt(order.getQuantity()));
         }
-        textViewPrice.setText(String.format(" $%s", total));
+        textViewPrice.setText(String.format(" %sTL", total));
     }
 
     private void showDialog() {
