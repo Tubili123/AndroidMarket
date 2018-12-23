@@ -1,18 +1,12 @@
 package com.tubili.androidmarket.Adapter;
 
-import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.amulyakhare.textdrawable.TextDrawable;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.tubili.androidmarket.CartActivity;
 import com.tubili.androidmarket.Database.Database;
@@ -80,31 +74,32 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
 
         Locale locale = new Locale("en", "US");
         final NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
-        final int price = Integer.parseInt(orders.get(position).getPrice()) * Integer.parseInt(orders.get(position).getQuantity())
-            - Integer.parseInt(orders.get(position).getDiscount()) * Integer.parseInt(orders.get(position).getQuantity());
+        final double price = Double.parseDouble(orders.get(position).getPrice()) * Double.parseDouble(orders.get(position).getQuantity())
+            - Double.parseDouble(orders.get(position).getDiscount()) * Double.parseDouble(orders.get(position).getQuantity());
         holder.textViewItemPrice.setText(numberFormat.format(price));
+        holder.textViewItemPrice.append("  İndirim: "+Double.parseDouble(orders.get(position).getDiscount())+"TL");
         holder.btnQuantity.setNumber(orders.get(position).getQuantity());
 
         holder.btnQuantity.setOnValueChangeListener(new ElegantNumberButton.OnValueChangeListener() {
             @Override
             public void onValueChange(ElegantNumberButton view, int oldValue, int newValue) {
                 //Updating the price after quantity is changed
-                int result = Integer.parseInt(orders.get(position).getPrice()) * newValue;
+                double result = Double.parseDouble(orders.get(position).getPrice()) * newValue;
                 holder.textViewItemPrice.setText(numberFormat.format(result));
-
+                holder.textViewItemPrice.append("  İndirim: "+Double.parseDouble(orders.get(position).getDiscount())*newValue+"TL");
                 //Update database
                 Order order = orders.get(position);
                 order.setQuantity(String.valueOf(newValue));
                 new Database(context).updateCart(order);
 
                 //Update total amount
-                int total = 0;
+                double total = 0;
                 for(Order cartOrder: orders)
                 {
-                    total += (Integer.parseInt(cartOrder.getPrice()) * Integer.parseInt(cartOrder.getQuantity())
-                            - Integer.parseInt(cartOrder.getDiscount()) * Integer.parseInt(cartOrder.getQuantity()));
+                    total += (Double.parseDouble(cartOrder.getPrice()) * Double.parseDouble(cartOrder.getQuantity())
+                            - Double.parseDouble(cartOrder.getDiscount()) * Double.parseDouble(cartOrder.getQuantity()));
                 }
-                context.textViewPrice.setText(String.format(" $%s", total));
+                context.textViewPrice.setText(String.format(" %s TL", total));
             }
         });
 

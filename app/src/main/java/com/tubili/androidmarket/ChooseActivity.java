@@ -86,6 +86,7 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
         //checking internet firstly
         if (Common.isInternetAvailable(this)) {
             if (v.getId() == R.id.btnClient) {
+
                 //check if user is already signed in
                 String phone = Paper.book(CLIENT).read(USER_PHONE);
                 String password = Paper.book(CLIENT).read(USER_PASSWORD);
@@ -120,7 +121,7 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
             }
         }
         else {
-            Snackbar.make(relativeLayout, "No Internet Connection!", Snackbar.LENGTH_LONG).show();
+            Snackbar.make(relativeLayout, "İnternet erişimi yok!", Snackbar.LENGTH_LONG).show();
         }
     }
 

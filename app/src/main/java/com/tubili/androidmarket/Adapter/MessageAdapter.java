@@ -30,7 +30,7 @@ public class MessageAdapter extends ArrayAdapter<Message> {
 
         Message message = getItem(position);
 
-        if(!message.isSend()) {
+        if(message.isSend()) {
             convertView = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.activity_item_message, parent, false);
 
             BubbleTextView bubbleTextViewServer = convertView.findViewById(R.id.bubbleChatServer);

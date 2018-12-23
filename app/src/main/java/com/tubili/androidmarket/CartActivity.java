@@ -78,12 +78,12 @@ public class CartActivity extends AppCompatActivity {
         });
         recyclerView.setAdapter(cartAdapter);
 
-        int total = 0;
+        double total = 0;
         //Calculating total price
         for(Order order: orders)
         {
-            total += (Integer.parseInt(order.getPrice()) * Integer.parseInt(order.getQuantity())
-                    - Integer.parseInt(order.getDiscount()) * Integer.parseInt(order.getQuantity()));
+            total += (Double.parseDouble(order.getPrice()) * Double.parseDouble(order.getQuantity())
+                    - Double.parseDouble(order.getDiscount()) * Double.parseDouble(order.getQuantity()));
         }
         textViewPrice.setText(String.format(" %sTL", total));
     }
