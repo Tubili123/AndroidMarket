@@ -11,6 +11,7 @@
     app:cardElevation="4dp">
 
     <RelativeLayout
+        android:id="@+id/orderItemLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="8dp">
@@ -19,42 +20,42 @@
             android:id="@+id/order_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/name"
             android:padding="4dp"
+            android:text="@string/name"
             android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/order_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/order_id"
+            android:fontFamily="casual"
+            android:padding="4dp"
             android:text="@string/shipping"
             android:textColor="@color/colorPrimary"
-            android:layout_below="@id/order_id"
-            android:padding="4dp"
             android:textSize="16sp"
-            android:fontFamily="casual"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/order_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/_03234380625"
             android:layout_below="@id/order_status"
             android:padding="4dp"
+            android:text="@string/_03234380625"
             android:textSize="16sp"
-            android:textStyle="normal"/>
+            android:textStyle="normal" />
 
         <TextView
             android:id="@+id/order_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/walton_road"
             android:layout_below="@id/order_phone"
             android:padding="4dp"
+            android:text="@string/walton_road"
             android:textSize="16sp"
-            android:textStyle="normal"/>
+            android:textStyle="normal" />
 
     </RelativeLayout>
 

@@ -30,6 +30,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.tubili.androidmarket.ChooseActivity;
 import com.tubili.androidmarket.Common.Common;
 import com.tubili.androidmarket.Interface.ItemClickListener;
 import com.tubili.androidmarket.Model.Category;
@@ -227,7 +228,7 @@ public class HomeActivityServer extends AppCompatActivity
             Paper.book(SERVER).delete(USER_PASSWORD);
             Paper.book(SERVER).delete(USER_NAME);
 
-            Intent intent = new Intent(HomeActivityServer.this, MainActivityServer.class);
+            Intent intent = new Intent(HomeActivityServer.this, ChooseActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }

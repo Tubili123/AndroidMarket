@@ -15,7 +15,7 @@ import com.tubili.androidmarket.R;
 public class MainActivityServer extends AppCompatActivity implements View.OnClickListener {
     Button btnSignIn;
     TextView textSlogan;
-    private boolean isSinglePressed;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +25,6 @@ public class MainActivityServer extends AppCompatActivity implements View.OnClic
         btnSignIn = findViewById(R.id.btnSignIn);
 
         textSlogan = findViewById(R.id.txtSlogan);
-        //Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/NABILA.TTF");
-        //textSlogan.setTypeface(typeface);
 
         btnSignIn.setOnClickListener(this);
     }

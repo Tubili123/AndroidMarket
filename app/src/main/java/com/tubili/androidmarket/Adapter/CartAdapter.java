@@ -1,10 +1,16 @@
 package com.tubili.androidmarket.Adapter;
 
+import android.content.DialogInterface;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewManager;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
@@ -25,6 +31,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
     private CartActivity context;
     private ItemClickListener itemClickListener;
 
+
+
     public CartAdapter(CartActivity context, List<Order> orders, ItemClickListener itemClickListener) {
         this.orders = orders;
         this.context = context;
@@ -39,6 +47,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
     class ViewHolder extends RecyclerView.ViewHolder {
         private TextView textViewItemName, textViewItemPrice;
         private ElegantNumberButton btnQuantity;
+        private Button cartItemRemove;
+
+
 //        private ImageView imageView;
         ViewHolder(View itemView) {
             super(itemView);
@@ -46,9 +57,16 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
             textViewItemName = itemView.findViewById(R.id.cart_item_name);
             textViewItemPrice = itemView.findViewById(R.id.cart_item_price);
             btnQuantity = itemView.findViewById(R.id.cart_change_quantity);
+            cartItemRemove = itemView.findViewById(R.id.cart_item_remove);
+
+
+
+
 //            textViewTotalPrice =  itemView.findViewById(R.id.order_price);
+
         }
     }
+
 
     @NonNull
     @Override
@@ -72,7 +90,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         holder.textViewItemName.setText(orders.get(position).getProductName());
 
-        Locale locale = new Locale("en", "US");
+        Locale locale = new Locale("tr", "TR");
         final NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
         final double price = Double.parseDouble(orders.get(position).getPrice()) * Double.parseDouble(orders.get(position).getQuantity())
             - Double.parseDouble(orders.get(position).getDiscount()) * Double.parseDouble(orders.get(position).getQuantity());
@@ -99,11 +117,35 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
                     total += (Double.parseDouble(cartOrder.getPrice()) * Double.parseDouble(cartOrder.getQuantity())
                             - Double.parseDouble(cartOrder.getDiscount()) * Double.parseDouble(cartOrder.getQuantity()));
                 }
-                context.textViewPrice.setText(String.format(" %s TL", total));
+                context.textViewPrice.setText(String.format(" %.5s TL", total));
+
             }
         });
 
+        holder.cartItemRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Order order = orders.get(position);
+                orders.remove(order);
+                new Database(context).updateCart(order);
+
+
+
+                double total = 0;
+                for(Order cartOrder: orders)
+                {
+                    total += (Double.parseDouble(cartOrder.getPrice()) * Double.parseDouble(cartOrder.getQuantity())
+                            - Double.parseDouble(cartOrder.getDiscount()) * Double.parseDouble(cartOrder.getQuantity()));
+                }
+                context.textViewPrice.setText(String.format(" %.5s TL", total));
+                CartAdapter.this.notifyItemRemoved(position);
+            }
+        });
+
+
     }
+
+
 
 
     @Override

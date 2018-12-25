@@ -49,6 +49,8 @@ public class CartActivity extends AppCompatActivity {
         textViewPrice = findViewById(R.id.order_price);
         buttonOrder = findViewById(R.id.btnPlaceOrder);
 
+
+
         buttonOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,6 +66,8 @@ public class CartActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         loadCart();
+
+
     }
 
 
@@ -85,7 +89,7 @@ public class CartActivity extends AppCompatActivity {
             total += (Double.parseDouble(order.getPrice()) * Double.parseDouble(order.getQuantity())
                     - Double.parseDouble(order.getDiscount()) * Double.parseDouble(order.getQuantity()));
         }
-        textViewPrice.setText(String.format(" %sTL", total));
+        textViewPrice.setText(String.format(" %.5s TL", total));
     }
 
     private void showDialog() {

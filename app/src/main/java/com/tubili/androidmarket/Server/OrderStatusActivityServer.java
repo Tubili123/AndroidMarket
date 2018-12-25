@@ -13,7 +13,9 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tubili.androidmarket.Common.Common;
 import com.tubili.androidmarket.Model.Request;
@@ -38,6 +40,7 @@ public class OrderStatusActivityServer extends AppCompatActivity {
     DatabaseReference request;
     FirebaseRecyclerAdapter adapter;
     private MaterialSpinner orderStatus;
+    RelativeLayout orderItemLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +55,12 @@ public class OrderStatusActivityServer extends AppCompatActivity {
         textViewStatus = findViewById(R.id.order_status);
         textViewPhone = findViewById(R.id.order_phone);
         textViewAddress = findViewById(R.id.order_address);
+        orderItemLayout = findViewById(R.id.orderItemLayout);
 
         recyclerView = findViewById(R.id.recycler_order_status);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
 
         if(getIntent().getStringExtra("phone") != null)
         {
@@ -70,6 +75,8 @@ public class OrderStatusActivityServer extends AppCompatActivity {
         Intent intentServer = new Intent(OrderStatusActivityServer.this, OrderListenService.class);
         startService(intentServer);
     }
+
+
 
     @Override
     protected void onStart() {
@@ -101,13 +108,14 @@ public class OrderStatusActivityServer extends AppCompatActivity {
     private void showOrders(String phone)
     {
         FirebaseRecyclerOptions<Request> options = new FirebaseRecyclerOptions.Builder<Request>().setQuery(
-                request.orderByChild("phone").equalTo(phone), Request.class).build();
+                request.orderByChild("phone"), Request.class).build();
         adapter = new FirebaseRecyclerAdapter<Request, OrderViewHolderServer>(options) {
             @NonNull
             @Override
             public OrderViewHolderServer onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.order_item, parent, false);
                 return new OrderViewHolderServer(view);
+
             }
 
             @Override
@@ -124,14 +132,6 @@ public class OrderStatusActivityServer extends AppCompatActivity {
                 TextView textViewStatus = holder.itemView.findViewById(R.id.order_status);
                 textViewStatus.setText(Common.getStatus(model.getStatus()));
 
-               /* holder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(OrderStatusActivityServer.this, TrackingOrderActivity.class);
-                        Common.currentRequest = model;
-                        startActivity(intent);
-                    }
-                });*/
             }
         };
         recyclerView.setAdapter(adapter);

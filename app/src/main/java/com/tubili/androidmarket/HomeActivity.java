@@ -243,7 +243,7 @@ public class HomeActivity extends AppCompatActivity
             Paper.book(CLIENT).delete(USER_PASSWORD);
             Paper.book(CLIENT).delete(USER_NAME);
 
-            Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+            Intent intent = new Intent(HomeActivity.this, ChooseActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }

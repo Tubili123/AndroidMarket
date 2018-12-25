@@ -27,6 +27,7 @@ public class OrderViewHolderServer extends RecyclerView.ViewHolder implements Vi
     @Override
     public void onClick(View view) {
         itemClickListener.onclick(view, getAdapterPosition(), false);
+
     }
 
     @Override
@@ -35,4 +36,5 @@ public class OrderViewHolderServer extends RecyclerView.ViewHolder implements Vi
         contextMenu.add(0, 0, getAdapterPosition(), Common.UPDATE);
         contextMenu.add(0, 1, getAdapterPosition(), Common.DELETE);
     }
+
 }
