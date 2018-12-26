@@ -127,7 +127,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
             public void onClick(View view) {
                 Order order = orders.get(position);
                 orders.remove(order);
-                new Database(context).updateCart(order);
+                new Database(context).removeFromCart(order);
 
 
 

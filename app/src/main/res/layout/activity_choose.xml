@@ -49,8 +49,8 @@
             android:id="@+id/btnClient"
             android:layout_margin="8dp"
             android:textColor="@color/bg"
+            android:background="@drawable/sign_up"
             android:text="@string/client"
-            android:background="@drawable/client"
             android:alpha="0"
             tools:ignore="ButtonStyle" />
 
@@ -63,7 +63,7 @@
             android:layout_margin="8dp"
             android:textColor="@color/bg"
             android:text="@string/server"
-            android:background="@drawable/server"
+            android:background="@drawable/sign_in"
             android:alpha="0"
             tools:ignore="ButtonStyle" />
 

@@ -26,6 +26,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/cart_item_name"
+            android:layout_alignStart="@+id/cart_item_name"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="6dp"
             android:padding="4dp"
             android:text="@string/_1_000"
             android:textSize="16sp"
@@ -54,12 +57,13 @@
 
         <Button
             android:id="@+id/cart_item_remove"
-            android:layout_width="103dp"
-            android:layout_height="35dp"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="256dp"
-            android:layout_marginTop="46dp"
+            android:layout_marginStart="220dp"
+            android:layout_marginTop="34dp"
+            android:background="#d0bcb0"
             android:text="Çıkar" />
 
 
