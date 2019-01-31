@@ -1,4 +1,12 @@
 # AndroidMarket
+
+### Developers  :computer:
+- Tuğba Bakırdöken (@tbakirdoken)<br />
+  _https://github.com/tbakirdoken_
+- Ahmet Gökçe Bozan (@gkca)<br />
+  _https://www.github.com/gkca_
+  
+  
 This application is a mini e-Market project. Used firebase database to keep categories, product and users. 
 You can also sending messages to administrator. This messages also keep in firebase database.
 This project is currently being developed for this:
